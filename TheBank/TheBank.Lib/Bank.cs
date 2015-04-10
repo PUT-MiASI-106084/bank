@@ -12,7 +12,7 @@ namespace TheBank.Lib
     {
         private AccountFactory accountFactory;
 
-        private AccountFactory AccountFactory
+        public AccountFactory AccountFactory
         {
             get { return accountFactory == null ? this.AccountFactory = new AccountFactory() : this.AccountFactory; }
             private set { accountFactory = value; }

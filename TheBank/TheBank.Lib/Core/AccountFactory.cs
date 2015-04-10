@@ -8,7 +8,7 @@ using TheBank.Lib.enums;
 
 namespace TheBank.Lib.Core
 {
-    class AccountFactory
+    public class AccountFactory
     {
         AccountFactoryState state;
 
