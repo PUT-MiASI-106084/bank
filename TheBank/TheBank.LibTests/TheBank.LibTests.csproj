@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Accounts\CheckingAccountTests.cs" />
     <Compile Include="Accounts\SavingAccountTests.cs" />
+    <Compile Include="Accounts\DebetDecoratorTest.cs" />
     <Compile Include="BankingOperations\TransferTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

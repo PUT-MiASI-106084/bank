@@ -7,7 +7,7 @@ using TheBank.Lib.Interfaces;
 
 namespace TheBank.Lib.Accounts.helpers
 {
-    class DebetDecorator : IAccount
+    public class DebetDecorator : IAccount
     {
         private double debet;
         private double MAXdebet;
@@ -67,7 +67,7 @@ namespace TheBank.Lib.Accounts.helpers
         {
             get
             {
-                return this.WrappedObject.Balance + this.MAXdebet - this.debet;
+                return this.WrappedObject.Balance + this.MAXdebet + this.debet;
             }
             set
             {
