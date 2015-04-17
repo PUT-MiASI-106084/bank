@@ -7,7 +7,7 @@ using TheBank.Lib.Interfaces;
 
 namespace TheBank.Lib
 {
-    public abstract class Account : IBasicBankOperations
+    public abstract class Account : IBasicBankOperations, IAccount
     {
         private double _Balance;
         public double Balance

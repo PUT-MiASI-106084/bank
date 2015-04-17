@@ -42,6 +42,7 @@
     <Compile Include="Account.cs" />
     <Compile Include="AccountOwner.cs" />
     <Compile Include="Accounts\CheckingAccount.cs" />
+    <Compile Include="Accounts\helpers\DebetDecorator.cs" />
     <Compile Include="Accounts\SavingAccount.cs" />
     <Compile Include="Bank.cs" />
     <Compile Include="BankingOperation.cs" />
@@ -53,6 +54,7 @@
     <Compile Include="Core\AccountFactoryStates\CreateChecking.cs" />
     <Compile Include="Core\AccountFactoryStates\CreateSaving.cs" />
     <Compile Include="enums\AccountType.cs" />
+    <Compile Include="Interfaces\IAccount.cs" />
     <Compile Include="Interfaces\IBankOperations.cs" />
     <Compile Include="Interfaces\IBasicBankOperations.cs" />
     <Compile Include="Loan.cs" />
