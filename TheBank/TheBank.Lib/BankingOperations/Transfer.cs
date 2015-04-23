@@ -1,22 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace TheBank.Lib.BankingOperations
 {
     public class Transfer : BankingOperation
     {
-        public static bool TransferMoney(Account from, Account to, double amount){
+        public static bool TransferMoney(TransferModel transfer)
+        {
+            TransferHandler amounHandler = new TransferAmountHandler();
+            TransferHandler multipleHander = new MultipleHighTransferHandler();
+            amounHandler.SetSuccessor(multipleHander);
 
-            if (from.Withdraw(amount))
+            if (transfer.From.Withdraw(transfer.Amount))
             {
-                to.PayIn(amount);
+                amounHandler.ProcessRequest(transfer);
                 return true;
             }
             return false;
         }
 
     }
+
+    
 }

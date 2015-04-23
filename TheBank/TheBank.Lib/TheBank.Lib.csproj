@@ -49,6 +49,8 @@
     <Compile Include="BankingOperations\Payment.cs" />
     <Compile Include="BankingOperations\Payoff.cs" />
     <Compile Include="BankingOperations\Transfer.cs" />
+    <Compile Include="BankingOperations\TransferHandler.cs" />
+    <Compile Include="BankingOperations\TransferModel.cs" />
     <Compile Include="Core\AccountFactory.cs" />
     <Compile Include="Core\AccountFactoryState.cs" />
     <Compile Include="Core\AccountFactoryStates\CreateChecking.cs" />
