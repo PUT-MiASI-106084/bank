@@ -1,1 +1,3 @@
 # bank
+
+MiASI projekt grupowy
