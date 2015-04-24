@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using TheBank.Lib.Core;
 using TheBank.Lib.enums;
+using TheBank.Lib.Interfaces;
 
 namespace TheBank.Lib
 {
-    public class Bank
+    public class Bank : IBank
     {
         private AccountFactory accountFactory;
 
@@ -25,7 +26,7 @@ namespace TheBank.Lib
             return _ListOfAccountOwners;
         }
 
-        public void CreateAccount(AccountOwner owner,AccountType type)
+        public void CreateAccount(IAccountOwner owner,AccountType type)
         {
             owner.AddAccount(this.AccountFactory.CreateAccount(type));
         }

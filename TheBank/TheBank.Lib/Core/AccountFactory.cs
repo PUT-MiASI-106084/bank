@@ -31,6 +31,7 @@ namespace TheBank.Lib.Core
         }
         public Account CreateAccount(AccountType type)
         {
+            this.SetState(type);
             return this.state.CreateAccount();
         }
     }
