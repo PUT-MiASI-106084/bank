@@ -15,17 +15,28 @@ namespace TheBank.Lib.BankingOperations.Tests
         public void TransferMoneyTestPositive()
         {
             //arrange
-            double amount = 5;
-            double formCurrentBalance = 10;
+            double amount = 21000;
+            double formCurrentBalance = 22000;
             double toCurrentBalance = 0;
-            double expected = 5;
+            double expected = 1000;
+            double toExpected = 21000;
             var from = new CheckingAccount(formCurrentBalance);
             var to = new CheckingAccount(toCurrentBalance);
+
+            var model = new TransferModel()
+            {
+                //Id = 
+                Amount = amount,
+                From = from,
+                InitiationDate = DateTime.Now,
+                Status = 0,
+                To = to
+            };
             //act
-            Transfer.TransferMoney(from, to, amount);
+            Transfer.TransferMoney(model);
             //assert
             Assert.AreEqual(from.Balance, expected);
-            Assert.AreEqual(to.Balance, expected);
+            Assert.AreEqual(to.Balance, toExpected);
 
         }
         [TestMethod()]
@@ -35,14 +46,22 @@ namespace TheBank.Lib.BankingOperations.Tests
             double amount = 5;
             double formCurrentBalance = 0;
             double toCurrentBalance = 10;
-           
             var from = new CheckingAccount(formCurrentBalance);
             var to = new CheckingAccount(toCurrentBalance);
+
+            var model = new TransferModel()
+            {
+                //Id = 
+                Amount = amount,
+                From = from,
+                InitiationDate = DateTime.Now,
+                Status = 0,
+                To = to
+            };
             //act
-            var result  = Transfer.TransferMoney(from, to, amount);
+            var result = Transfer.TransferMoney(model);
             //assert
             Assert.AreEqual(result, false);
-           
         }
     }
 }
