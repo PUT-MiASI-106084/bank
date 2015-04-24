@@ -60,6 +60,8 @@
     <Compile Include="Core\AccountFactoryStates\CreateChecking.cs" />
     <Compile Include="Core\AccountFactoryStates\CreateSaving.cs" />
     <Compile Include="enums\AccountType.cs" />
+    <Compile Include="Interfaces\IAccountOwner.cs" />
+    <Compile Include="Interfaces\IBank.cs" />
     <Compile Include="Interfaces\IAccount.cs" />
     <Compile Include="Interfaces\IBankOperations.cs" />
     <Compile Include="Interfaces\IBasicBankOperations.cs" />
