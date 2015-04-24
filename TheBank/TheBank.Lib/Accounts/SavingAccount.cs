@@ -29,7 +29,7 @@ namespace TheBank.Lib.Accounts
 
         }
 
-        public SavingAccount(double initialBalance, int maxMonthTransferCounter)
+        public SavingAccount(double initialBalance = 0, int maxMonthTransferCounter=10000)
             : base(initialBalance) {
                 this.MaxMTValue = maxMonthTransferCounter;
         }

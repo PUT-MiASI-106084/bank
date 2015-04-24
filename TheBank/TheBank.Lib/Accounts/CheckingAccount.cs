@@ -14,7 +14,7 @@ namespace TheBank.Lib.Accounts
            
         }
 
-        public CheckingAccount(double initialBalance)
+        public CheckingAccount(double initialBalance = 0)
             : base(initialBalance) { 
         }
 
