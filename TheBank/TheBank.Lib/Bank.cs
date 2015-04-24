@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TheBank.Lib.Core;
 using TheBank.Lib.enums;
 using TheBank.Lib.Interfaces;
@@ -11,19 +8,19 @@ namespace TheBank.Lib
 {
     public class Bank : IBank
     {
-        private AccountFactory accountFactory;
+        private AccountFactory _accountFactory;
 
         public AccountFactory AccountFactory
         {
-            get { return accountFactory == null ? this.AccountFactory = new AccountFactory() : this.AccountFactory; }
-            private set { accountFactory = value; }
+            get { return _accountFactory == null ? this.AccountFactory = new AccountFactory() : this.AccountFactory; }
+            private set { _accountFactory = value; }
         }
 
-        private List<AccountOwner> _ListOfAccountOwners;
+        private List<AccountOwner> _listOfAccountOwners;
 
         public IEnumerable<AccountOwner> GetListOfAccountOwners()
         {
-            return _ListOfAccountOwners;
+            return _listOfAccountOwners;
         }
 
         public void CreateAccount(IAccountOwner owner,AccountType type)

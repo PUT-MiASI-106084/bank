@@ -13,7 +13,7 @@
         public abstract void ProcessRequest(TransferModel transfer);
     }
 
-    class TransferAmountHandler : TransferHandler
+    public class TransferAmountHandler : TransferHandler
     {
         public override void ProcessRequest(TransferModel transfer)
         {
@@ -28,7 +28,7 @@
         }
     }
 
-    class MultipleHighTransferHandler : TransferHandler
+    public class TransferHighAmountHandler : TransferHandler
     {
         public override void ProcessRequest(TransferModel transfer)
         {
@@ -37,20 +37,31 @@
 
             var history = transfer.From.AccountsHistory;
 
-            //if !(seria takich samych przelewów)
-            if (transfer.Amount > 20000.0)
+            if (/*!(seria takich samych przelewów)*/true)
             {
                 transfer.To.PayIn(transfer.Amount);
             }
-            else
+            else if (Next != null)
             {
-                //zamrożenie przelewu
-                transfer.Status = (int) TransferState.Suspended;
+                Next.ProcessRequest(transfer);
             }
         }
 
         public void ReportToIRS(TransferModel transfer)
         { }
+    }
+
+    public class MultipleHighTransferHandler : TransferHandler
+    {
+        public override void ProcessRequest(TransferModel transfer)
+        {
+            transfer.Status = (int)TransferState.Suspended;
+
+            if (Next != null)
+            {
+                Next.ProcessRequest(transfer);
+            }
+        }
     }
 
 }
