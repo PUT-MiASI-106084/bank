@@ -1,42 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TheBank.Lib.Accounts;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-namespace TheBank.Lib.Accounts.Tests
+
+namespace TheBank.LibTests.Accounts
 {
-    [TestClass()]
+    [TestClass]
     public class CheckingAccountTests
     {
-      
-        [TestMethod()]
+        [TestMethod]
         public void WithdrawTest()
-        { 
+        {
             // arrange
-            double currentBalance = 10.0;
-            double withdrawal = 1.0;
-            double expected = 9.0;
+            var currentBalance = 10.0;
+            var withdrawal = 1.0;
+            var expected = 9.0;
             var account = new CheckingAccount(currentBalance);
             // act
             account.Withdraw(withdrawal);
-            double actual = account.Balance;
+            var actual = account.Balance;
             // assert
             Assert.AreEqual(expected, actual);
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void PayInTest()
         {
             // arrange
-            double currentBalance = 10.0;
-            double payIn = 1.0;
-            double expected = 11.0;
+            var currentBalance = 10.0;
+            var payIn = 1.0;
+            var expected = 11.0;
             var account = new CheckingAccount(currentBalance);
             // act
-            account.PayIn(payIn);
-            double actual = account.Balance;
+            var actual = account.Balance;
             // assert
             Assert.AreEqual(expected, actual);
         }

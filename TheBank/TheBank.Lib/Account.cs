@@ -1,48 +1,45 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TheBank.Lib.Interfaces;
 
 namespace TheBank.Lib
 {
     public abstract class Account : IBasicBankOperations, IAccount
     {
-        private double _Balance;
+        private double _balance;
         public double Balance
         {
-            get { return _Balance; }
-            set { _Balance = value; }        }
+            get { return _balance; }
+            set { _balance = value; }        }
 
-        private OperationHistory _AccountsHistory;
+        private OperationHistory _accountsHistory;
         public OperationHistory AccountsHistory
         {
-            get { return _AccountsHistory; }
-            set { _AccountsHistory = value; }
+            get { return _accountsHistory; }
+            set { _accountsHistory = value; }
         }
 
-        private List<SmartCard> _ListOfSmartCards;
+        private List<SmartCard> _listOfSmartCards;
         public List<SmartCard> ListOfSmartCards
         {
-            get { return _ListOfSmartCards; }
-            set { _ListOfSmartCards = value; }
+            get { return _listOfSmartCards; }
+            set { _listOfSmartCards = value; }
         }
         
 
         public Account()
         {
-            _Balance = 0;
+            _balance = 0;
         }
         public Account(double initialBalance)
         {
-            _Balance = initialBalance;
+            _balance = initialBalance;
         }
 
         //public virtual bool CreateAnOperation();
         public virtual bool Withdraw(double amount){ throw new NotImplementedException();}
         public virtual bool PayIn(double amount) { 
-            this.Balance += amount; 
+            Balance += amount; 
             return true;
         }
 

@@ -1,26 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using TheBank.Lib.Interfaces;
+
 namespace TheBank.Lib
 {
     public class AccountOwner : IAccountOwner
     {
-        private List<Account> _ListOfAccounts;
+        private readonly List<Account> _listOfAccounts;
 
-        public AccountOwner() {
-            this._ListOfAccounts = new List<Account>();
+        public AccountOwner()
+        {
+            _listOfAccounts = new List<Account>();
         }
 
         public IEnumerable<Account> GetListOfAccounts()
         {
-            return _ListOfAccounts;
+            return _listOfAccounts;
         }
 
-        public void AddAccount(Account account) {
-            this._ListOfAccounts.Add(account);
+        public void AddAccount(Account account)
+        {
+            _listOfAccounts.Add(account);
         }
     }
 }

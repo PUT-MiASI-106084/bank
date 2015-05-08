@@ -1,19 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Autofac;
 using TheBank.Lib;
-using TheBank.Lib.Interfaces;
 using TheBank.Lib.enums;
+using TheBank.Lib.Interfaces;
 
 namespace TheBankConsole
 {
-    class Program
+    internal class Program
     {
         private static IContainer Container { get; set; }
-        static void Main(string[] args)
+
+        private static void Main(string[] args)
         {
             var builder = new ContainerBuilder();
             builder.RegisterType<Bank>().As<IBank>();
@@ -25,8 +23,8 @@ namespace TheBankConsole
             var owner = scope.Resolve<IAccountOwner>();
             bank.CreateAccount(owner, AccountType.Checking);
 
-            System.Console.WriteLine(owner.GetListOfAccounts().First().Balance.ToString());
-            System.Console.ReadLine();
+            Console.WriteLine(owner.GetListOfAccounts().First().Balance.ToString());
+            Console.ReadLine();
         }
     }
 }

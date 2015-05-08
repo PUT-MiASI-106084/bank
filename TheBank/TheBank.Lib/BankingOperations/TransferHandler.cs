@@ -1,6 +1,9 @@
-﻿namespace TheBank.Lib.BankingOperations
-{
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
+namespace TheBank.Lib.BankingOperations
+{
     public abstract class TransferHandler
     {
         protected TransferHandler Next;
@@ -35,9 +38,13 @@
             // zgłoszenie przelewu do US
             ReportToIRS(transfer);
 
-            var history = transfer.From.AccountsHistory;
+            //pobranie historii przelewów z ostatniej godziny
+            List<TransferModel> history = null;
+            history.AddRange(
+                transfer.From.AccountsHistory.TransfersList.Where(
+                    trans => /*trans.From == transfer.From &&*/ trans.InitiationDate >= DateTime.Now.AddHours(1)));
 
-            if (/*!(seria takich samych przelewów)*/true)
+            if (history.Count < 10)
             {
                 transfer.To.PayIn(transfer.Amount);
             }
@@ -48,14 +55,15 @@
         }
 
         public void ReportToIRS(TransferModel transfer)
-        { }
+        {
+        }
     }
 
     public class MultipleHighTransferHandler : TransferHandler
     {
         public override void ProcessRequest(TransferModel transfer)
         {
-            transfer.Status = (int)TransferState.Suspended;
+            transfer.Status = (int) TransferState.Suspended;
 
             if (Next != null)
             {
@@ -63,5 +71,4 @@
             }
         }
     }
-
 }

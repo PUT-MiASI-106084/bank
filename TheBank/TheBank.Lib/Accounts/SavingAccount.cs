@@ -1,51 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TheBank.Lib.Accounts
+﻿namespace TheBank.Lib.Accounts
 {
     public class SavingAccount : Account
     {
-        private int _MTCounter;
-        private int _MaxMTValue;
-
-        public int MaxMTValue
-        {
-            get { return _MaxMTValue; }
-            set { _MaxMTValue = value; }
-        }
-
-        public int MonthTransferCounter
-        {
-            get { return _MTCounter; }
-            set { _MTCounter = value; }
-        }
-
         public SavingAccount()
-            :base()
         {
-
         }
 
-        public SavingAccount(double initialBalance = 0, int maxMonthTransferCounter=10000)
-            : base(initialBalance) {
-                this.MaxMTValue = maxMonthTransferCounter;
+        public SavingAccount(double initialBalance = 0, int maxMonthTransferCounter = 10000)
+            : base(initialBalance)
+        {
+            MaxMTValue = maxMonthTransferCounter;
         }
+
+        public int MaxMTValue { get; set; }
+        public int MonthTransferCounter { get; set; }
 
         public override bool Withdraw(double amount)
         {
-            if (this.Balance >= amount && this.MonthTransferCounter <= this.MaxMTValue  ) 
+            if (Balance >= amount && MonthTransferCounter <= MaxMTValue)
             {
-                this.Balance -= amount;
-                this.MonthTransferCounter++;
+                Balance -= amount;
+                MonthTransferCounter++;
                 return true;
             }
-            else {
-                return false;
-            }
+            return false;
         }
+
         public override bool PayIn(double amount)
         {
             return base.PayIn(amount);

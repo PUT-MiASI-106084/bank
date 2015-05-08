@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TheBank.Lib.BankingOperations;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TheBank.Lib.Accounts;
-namespace TheBank.Lib.BankingOperations.Tests
+using TheBank.Lib.BankingOperations;
+
+namespace TheBank.LibTests.BankingOperations
 {
     [TestClass()]
     public class TransferTests

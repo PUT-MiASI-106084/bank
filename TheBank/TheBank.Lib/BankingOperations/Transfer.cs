@@ -1,7 +1,4 @@
-﻿using System;
-using System.Text;
-
-namespace TheBank.Lib.BankingOperations
+﻿namespace TheBank.Lib.BankingOperations
 {
     public class Transfer : BankingOperation
     {
@@ -21,8 +18,5 @@ namespace TheBank.Lib.BankingOperations
 
             return false;
         }
-
     }
-
-    
 }
